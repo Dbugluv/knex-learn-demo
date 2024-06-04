@@ -12,11 +12,11 @@ const knex = require('knex')({
 
 export const create = async () => {
   try {
-    const res = await knex.schema.hasTable('users').then(function (exists) {
+    const res = await knex.schema.hasTable('user').then(function (exists) {
       console.log('exists--', exists);
 
       if (!exists) {
-        return knex.schema.createTable('users', function (t) {
+        return knex.schema.createTable('user', function (t) {
           t.increments('id').primary();
           t.string('first_name', 100);
           t.string('last_name', 100);

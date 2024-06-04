@@ -26,8 +26,8 @@ export class UsersService {
   async create(createUserDto: CreateUserDto) {
     try {
       const users = await this.knex.table('user').insert({
-        firstName: createUserDto.firstName,
-        lastName: createUserDto.lastName,
+        first_name: createUserDto.firstName,
+        last_name: createUserDto.lastName,
       });
 
       return { users };
@@ -47,8 +47,8 @@ export class UsersService {
   async update(id: number, updateUserDto: UpdateUserDto) {
     try {
       const users = await this.knex.table('user').where('id', id).update({
-        firstName: updateUserDto.firstName,
-        lastName: updateUserDto.lastName,
+        first_name: updateUserDto.firstName,
+        last_name: updateUserDto.lastName,
       });
 
       return { users };
